@@ -1,0 +1,476 @@
+ /* === RESET DE BASE === */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap'); /* 🔧 polices */
+
+
+h1, h2, h3, h4 {
+  font-family: 'Poppins', sans-serif; /* 🔧 titres */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+}
+
+/* === COULEURS GLOBALES === */
+:root {
+  --black1: #121212;
+  --dark-green1: #1c2526;
+  --light-green1: #4caf50;
+  --green1 : #2e7d32;
+  --textwhite1: #f9f9f9;
+  --gradient-bg: linear-gradient(135deg, #121212 0%, #1c2526 100%);
+}
+
+
+body {
+   background: var(--gradient-bg); /* 🔧 dégradé de fond */
+  color: var(--textwhite1); /* 🔧 texte clair */
+  width: 100%;
+   font-family: 'Inter', sans-serif; /* 🔧 texte général */
+
+}
+li{
+  list-style: none;
+}
+
+/* === ***********  Header ***************************=== */
+header {
+  background-color: var(--black1);
+  padding: 15px 10%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+nav span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--light-green1); /* LOGO COULEUR */
+}
+
+nav ul {
+  display: flex;
+  gap: 30px;
+}
+
+nav ul li a {
+  color: var(--textwhite1);
+  font-weight: 600;
+  font-size: 1rem;
+  position: relative;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+nav ul li a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  height: 2px;
+  width: 0%;
+  background-color: var(--light-green1);
+  transition: width 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: var(--light-green1);
+}
+
+nav ul li a:hover::after {
+  width: 100%;
+}
+
+/* === SECTION HOME === */
+#home {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80px 100px;
+  background: var(--gradient-bg);
+  flex-wrap: wrap;
+  color: var(--textwhite1);
+}
+
+/* Bloc texte */
+.presentation {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.presentation h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  color: var(--textwhite1);
+}
+
+.presentation .title {
+  font-size: 2rem;
+  color: var(--light-green1);
+  font-weight: bold;
+  margin: 5px 0;
+  animation: fadeInUp 1s ease-in-out;
+}
+
+.presentation p {
+  margin-top: 15px;
+  line-height: 1.6;
+  color: #dcdcdc;
+}
+
+.presentation ul {
+  display: flex;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.presentation ul span {
+  background-color: var(--light-green1);
+  color: #ffffff;
+  padding: 12px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.presentation ul span:hover {
+  background-color: var(--green1);
+  transform: scale(1.1);
+}
+
+/* Bloc image */
+.portrait {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.portrait img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 5px solid var(--light-green1);
+  box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
+}
+
+/* Animation légère */
+@keyframes fadeInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+/* bloc main */
+main{
+    padding: 0 10%;
+}
+
+/* ********section About *************** */
+#about {
+  background: #1c1c1c;
+  color: var(--textwhite1);
+  padding: 80px 10%;
+  text-align: center;
+}
+
+#about h2 {
+  font-size: 2.5rem;
+  color: var(--light-green1);
+  margin-bottom: 20px;
+}
+
+#about p {
+  font-size: 1.1rem;
+  color: #ccc;
+  max-width: 700px;
+  margin: 0 auto;
+}
+/* ********** SKILLS ************ */
+#skills {
+  background: var(--black1);
+  padding: 80px 10%;
+  color: var(--textwhite1);
+}
+
+#skills h2 {
+  font-size: 2.5rem;
+  color: var(--light-green1);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#skills p {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ccc;
+}
+
+.stacks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+}
+
+.stacks > div {
+  background: #1c2526;
+  padding: 20px;
+  border-radius: 12px;
+  width: 220px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.stacks > div:hover {
+  transform: translateY(-5px);
+}
+
+.stacks h3 {
+  color: var(--light-green1);
+  margin-bottom: 15px;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.stacks ul {
+  padding-left: 15px;
+}
+
+.stacks li {
+  margin-bottom: 8px;
+  color: #ccc;
+}
+
+
+
+/* === SECTION PROJECTS === */
+#projects {
+  padding: 80px 10%;
+  background: #1c2526;
+}
+
+#projects h2 {
+  font-size: 2.5rem;
+  margin-bottom: 40px;
+  text-align: center;
+  color: var(--light-green1);
+}
+
+.projet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.projet-card {
+  background: #121212;
+  border-radius: 15px;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.projet-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 25px rgba(76, 175, 80, 0.4);
+}
+
+.projet-card .title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.projet-card .title img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.projet-card h4 {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.projet-card .presentation p {
+  color: #ccc;
+  margin-bottom: 15px;
+}
+
+.projet-card .techno {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.projet-card .techno button {
+  background-color: transparent;
+  color: var(--light-green1);
+  border: 1px solid var(--light-green1);
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: default;
+  font-size: 0.9rem;
+}
+
+.projet-card .github button {
+  background: var(--light-green1);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.projet-card .github button:hover {
+  background: var(--green1);
+}
+
+/* === CONTACT SECTION === */
+#contact {
+  background: #1c2526;
+  color: var(--textwhite1);
+  padding: 80px 10%;
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  color: var(--light-green1);
+  margin-bottom: 15px;
+}
+
+#contact p {
+  font-size: 1.1rem;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.input-row input {
+  flex: 1;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2e3638;
+  color: #f9f9f9;
+  font-size: 1rem;
+}
+
+textarea {
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  resize: vertical;
+  min-height: 120px;
+  background-color: #2e3638;
+  color: #f9f9f9;
+  font-size: 1rem;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: 2px solid var(--light-green1);
+  background-color: #384242;
+}
+
+form button {
+  background-color: var(--light-green1);
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+  align-self: flex-start;
+}
+
+form button:hover {
+  background-color: var(--green1);
+  transform: scale(1.03);
+}
+
+/* === FOOTER === */
+footer {
+  background-color: #121212;
+  color: var(--textwhite1);
+  padding: 30px 10%;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-socials {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-socials a {
+  color: var(--textwhite1);
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.footer-socials a:hover {
+  color: var(--light-green1);
+}
+
+.footer-right a {
+  color: var(--light-green1);
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity 0.3s;
+}
+
+.footer-right a:hover {
+  opacity: 0.7;
+}
+
