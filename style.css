@@ -1,9 +1,39 @@
  /* === RESET DE BASE === */
+@font-face {
+  font-family: "allura";
+  src: url(./assets/fonts/Allura/Allura-Regular.ttf);
+}
+html{
+  scroll-behavior: smooth;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap'); /* 🔧 polices */
 
 
 h1, h2, h3, h4 {
   font-family: 'Poppins', sans-serif; /* 🔧 titres */
+}
+h2{
+  margin-bottom: 90px;
+  position: relative
+}
+
+h2::before, h2::after{
+  content: "";
+  position: absolute;
+  width: 20%;
+  height: 3px;
+  background: linear-gradient(90deg,rgba(10, 28, 17, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(14, 21, 18, 1) 100%);
+ top: 20px;
+}
+
+h2::before{
+  left: 0;
+ 
+}
+h2::after{
+  right: 0;
+
 }
 
 * {
@@ -34,10 +64,13 @@ body {
 li{
   list-style: none;
 }
+/* after et befor sur tous les h2 */
+
 
 /* === ***********  Header ***************************=== */
 header {
-  background-color: var(--black1);
+  background-color:#121B17;
+  border-bottom: 2px solid #20573E;;
   padding: 15px 10%;
   position: sticky;
   top: 0;
@@ -52,9 +85,10 @@ nav {
 }
 
 nav span {
-  font-size: 1.5rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: var(--light-green1); /* LOGO COULEUR */
+  font-family: "allura";
 }
 
 nav ul {
@@ -66,10 +100,19 @@ nav ul li a {
   color: var(--textwhite1);
   font-weight: 600;
   font-size: 1rem;
+  padding: 5px 15px;
   position: relative;
   text-decoration: none;
   transition: color 0.3s ease;
 }
+/* nav ul li:first-child a { */
+  /* border: 1px solid white; */
+  /* border-radius: 5px;
+ background: linear-gradient(90deg,rgba(10, 28, 17, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(175, 237, 83, 1) 100%);
+} */
+/* nav ul li a.active{
+   background: linear-gradient(90deg,rgba(42, 155, 87, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(237, 221, 83, 1) 100%);
+} */
 
 nav ul li a::after {
   content: "";
@@ -83,7 +126,7 @@ nav ul li a::after {
 }
 
 nav ul li a:hover {
-  color: var(--light-green1);
+  color: #B1F1CB;
 }
 
 nav ul li a:hover::after {
@@ -96,9 +139,11 @@ nav ul li a:hover::after {
   align-items: center;
   justify-content: space-between;
   padding: 80px 100px;
-  background: var(--gradient-bg);
+  /* background: var(--gradient-bg); */
+ background: radial-gradient(circle,rgba(32, 87, 62, 1) 0%, rgba(14, 21, 18, 1) 100%);
   flex-wrap: wrap;
   color: var(--textwhite1);
+  height: 80vh;
 }
 
 /* Bloc texte */
@@ -139,7 +184,7 @@ nav ul li a:hover::after {
   padding: 12px;
   border-radius: 50%;
   cursor: pointer;
-  transition: transform 0.3s ease, background 0.3s ease;
+  transition: 0.3s ease-in-out;
 }
 
 .presentation ul span:hover {
@@ -147,23 +192,56 @@ nav ul li a:hover::after {
   transform: scale(1.1);
 }
 
-/* Bloc image */
-.portrait {
+/* Bloc portrait ou image */
+.polygon-container {
   flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 30px;
+  height: 100%;
+  max-height: 450px;
+  max-width: 500px;
+  filter: drop-shadow(-1px 10px 3px #20573E);
+    place-self: center left; 
+    /* border: 1px solid white; */
+    /* background: url(./assets/images/photo-nobackground.png) center/cover; */
+   
+}
+.polygon{
+  clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+  /* clip-path: polygon(25% 0%, 75% 0%, 100% 53%, 74% 100%, 25% 100%, 0% 50%); */
+  background: linear-gradient(90deg,rgba(10, 28, 17, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(14, 21, 18, 1) 100%);
+    height: 90%;
+    width: 75%;
+    max-width: 1200px;
+   border:2px solid;border-image: radial-gradient(circle farthest-corner at center, rgb(0, 219, 37) 15%, rgb(0, 255, 115) 35%, rgb(0, 219, 37) 50%, rgb(99, 110, 105) 65%, rgb(0, 173, 86) 85%, rgba(46, 35, 0, 1) 100%) 10% round;
+   border-top: none;
+     
+}
+.polygon:after{
+content: "";
+position: absolute;
+width: 60%;
+height: 380px;
+color: white;
+top: 50%;
+left: 50%;
+ background: url(./assets/images/photo-nobackground.png) center/cover;
+ transform: translate(-50%,-55%);
+ z-index: 100;
 }
 
+/* Bloc image
 .portrait img {
   width: 320px;
   height: 320px;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 30% 70% 71% 29% / 66% 58% 42% 34% ;
   border: 5px solid var(--light-green1);
   box-shadow: 0 0 20px rgba(76, 175, 80, 0.3);
-}
+} */
+
 
 /* Animation légère */
 @keyframes fadeInUp {
@@ -185,10 +263,12 @@ main{
 
 /* ********section About *************** */
 #about {
-  background: #1c1c1c;
+   /* background: #1c1c1c */
+  background: #132D21;
   color: var(--textwhite1);
   padding: 80px 10%;
   text-align: center;
+  height: 70vh;
 }
 
 #about h2 {
@@ -203,9 +283,19 @@ main{
   max-width: 700px;
   margin: 0 auto;
 }
+.about-presentation{
+  display: grid;
+  grid-template-columns: 35% 70%;
+}
+#about img{
+  width: 100%;
+  object-fit: cover;
+}
 /* ********** SKILLS ************ */
 #skills {
-  background: var(--black1);
+  /* background: var(--black1); */
+  /* background: #0E1512; */
+   background: radial-gradient(circle,rgba(32, 87, 62, 1) 0%, rgba(14, 21, 18, 1) 100%);
   padding: 80px 10%;
   color: var(--textwhite1);
 }
@@ -264,12 +354,14 @@ main{
 /* === SECTION PROJECTS === */
 #projects {
   padding: 80px 10%;
-  background: #1c2526;
+  /* background: #1c2526; */
+   background: #132D21;
+   min-height: 900px;
 }
 
 #projects h2 {
   font-size: 2.5rem;
-  margin-bottom: 40px;
+  margin-bottom: 80px;
   text-align: center;
   color: var(--light-green1);
 }
@@ -323,6 +415,9 @@ main{
   gap: 10px;
   margin-bottom: 15px;
 }
+.projet-card .presentation img {
+  width: 100%;
+}
 
 .projet-card .techno button {
   background-color: transparent;
@@ -351,7 +446,8 @@ main{
 
 /* === CONTACT SECTION === */
 #contact {
-  background: #1c2526;
+  /* background: #1c2526; */
+ background: radial-gradient(circle,rgba(32, 87, 62, 1) 0%, rgba(14, 21, 18, 1) 100%);
   color: var(--textwhite1);
   padding: 80px 10%;
   text-align: center;
@@ -398,8 +494,9 @@ textarea {
   border-radius: 8px;
   border: none;
   resize: vertical;
-  min-height: 120px;
-  background-color: #2e3638;
+  min-height: 250px;
+  /* background-color: #2e3638; */
+   background-color: #1f3a2e;
   color: #f9f9f9;
   font-size: 1rem;
 }
@@ -411,7 +508,8 @@ form textarea:focus {
 }
 
 form button {
-  background-color: var(--light-green1);
+  background-color: 
+var(--green1);
   color: white;
   padding: 15px 30px;
   border: none;
@@ -420,17 +518,17 @@ form button {
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
-  align-self: flex-start;
+  align-self:center;
 }
 
 form button:hover {
-  background-color: var(--green1);
+  background-color: #2F7C57; 
   transform: scale(1.03);
 }
 
 /* === FOOTER === */
 footer {
-  background-color: #121212;
+  background-color:#121B17;
   color: var(--textwhite1);
   padding: 30px 10%;
   font-size: 0.95rem;
@@ -473,4 +571,8 @@ footer {
 .footer-right a:hover {
   opacity: 0.7;
 }
-
+/* Ajout des classes dynamique en CSS */
+.active{
+    border-radius: 5px;
+    background: linear-gradient(90deg,rgba(10, 28, 17, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(175, 237, 83, 1) 100%);
+}
