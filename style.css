@@ -266,9 +266,10 @@ main{
    /* background: #1c1c1c */
   background: #132D21;
   color: var(--textwhite1);
-  padding: 80px 10%;
+  padding: 80px 5%;
   text-align: center;
-  height: 70vh;
+  min-height: 80vh;
+
 }
 
 #about h2 {
@@ -280,17 +281,53 @@ main{
 #about p {
   font-size: 1.1rem;
   color: #ccc;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 500px;
+  width: 80%;
+  margin: 40px auto;
+  text-align: justify;
+ 
+
 }
 .about-presentation{
   display: grid;
-  grid-template-columns: 35% 70%;
+  grid-template-columns: 35% 60%;
+  text-align: center;
+  justify-content: center;
+  overflow : hidden;
+  min-height: 70vh;
+  gap: 30px;
 }
 #about img{
   width: 100%;
   object-fit: cover;
+   margin: 70px 0 50px 0;
 }
+#about .btn-telecharger{
+  width: 60%;
+  border: 1px solid red;
+}
+#about .btn-telecharger button{
+  padding: 10px;
+  width: 80%;
+  margin-right: 20px;
+  border: 1px solid red;
+  position: relative;
+  border-radius: 200px;
+
+}
+#about .btn-telecharger button a{
+  text-decoration: none;
+}
+#about .btn-telecharger span{
+  margin-left: 10px;
+  position: absolute;
+  right: 15px;
+  padding: 8px;
+   border: 1px solid rgb(0, 47, 255);
+   border-radius: 50px;
+   top: 0;
+}
+
 /* ********** SKILLS ************ */
 #skills {
   /* background: var(--black1); */
@@ -353,7 +390,7 @@ main{
 
 /* === SECTION PROJECTS === */
 #projects {
-  padding: 80px 10%;
+  padding: 80px 5%;
   /* background: #1c2526; */
    background: #132D21;
    min-height: 900px;
@@ -368,7 +405,7 @@ main{
 
 .projet-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
   gap: 30px;
 }
 
@@ -378,6 +415,7 @@ main{
   padding: 20px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgb(248, 247, 247);
 }
 
 .projet-card:hover {
@@ -386,6 +424,7 @@ main{
 }
 
 .projet-card .title {
+  /* border: 1px solid red; */
   display: flex;
   align-items: center;
   gap: 10px;
@@ -404,9 +443,18 @@ main{
   font-size: 1.2rem;
 }
 
+.projet-card .presentation{
+  width: 100%;
+  padding: 0;
+  margin: 0;
+   /* border: 1px solid red; */
+      /* overflow-y: scroll; */
+}
+
 .projet-card .presentation p {
   color: #ccc;
   margin-bottom: 15px;
+    /* border: 1px solid red; */
 }
 
 .projet-card .techno {
@@ -414,9 +462,14 @@ main{
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 15px;
+    /* border: 1px solid red; */
 }
 .projet-card .presentation img {
   width: 100%;
+  height: 40vh;
+  margin-right: 0;
+  object-fit: cover/top;
+  
 }
 
 .projet-card .techno button {
@@ -431,7 +484,7 @@ main{
 
 .projet-card .github button {
   background: var(--light-green1);
-  color: white;
+  /* color: white; */
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
@@ -496,7 +549,7 @@ textarea {
   resize: vertical;
   min-height: 250px;
   /* background-color: #2e3638; */
-   background-color: #1f3a2e;
+  background-color: #2e3638;
   color: #f9f9f9;
   font-size: 1rem;
 }
@@ -575,4 +628,136 @@ footer {
 .active{
     border-radius: 5px;
     background: linear-gradient(90deg,rgba(10, 28, 17, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(175, 237, 83, 1) 100%);
+}
+
+/* ===================== RESPONSIVE ===================== */
+
+/* Tablettes et petits ordinateurs */
+@media screen and (max-width: 1024px) {
+  /* HOME */
+  #home {
+    flex-direction: column;
+    padding: 60px 5%;
+    height: auto;
+    text-align: center;
+  }
+  .presentation {
+    padding-right: 0;
+  }
+  .polygon-container {
+    max-width: 100%;
+    height: 350px;
+    margin-top: 30px;
+  }
+
+  /* ABOUT */
+  .about-presentation {
+    /* grid-template-columns: 1fr;
+    gap: 20px; */
+    display: block;
+    text-align: center;
+  }
+
+  /* SKILLS */
+  .stacks {
+    justify-content: center;
+  }
+
+  /* PROJECTS */
+  .projet-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
+
+  .projet-card .presentation img {
+    height: 250px;
+  }
+
+  /* CONTACT */
+  form {
+    padding: 0 10px;
+  }
+  .input-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+  textarea {
+    min-height: 180px;
+  }
+
+  /* HEADER */
+  nav ul {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  /* FOOTER */
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+}
+
+/* Mobiles */
+@media screen and (max-width: 768px) {
+  /* HOME */
+  #home h1 {
+    font-size: 2rem;
+  }
+  .presentation p {
+    font-size: 0.95rem;
+  }
+  .polygon-container {
+    height: 200px;
+  }
+
+  /* PROJECTS */
+  .projet-card .presentation img {
+    height: 180px;
+  }
+
+  /* CONTACT */
+  form input,
+  form textarea {
+    font-size: 0.9rem;
+  }
+  form button {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+
+  /* HEADER */
+  nav span {
+    font-size: 2rem;
+  }
+}
+
+/* Très petits écrans */
+@media screen and (max-width: 480px) {
+  /* HOME */
+  #home h1 {
+    font-size: 1.5rem;
+  }
+  .presentation p {
+    font-size: 0.85rem;
+  }
+  .polygon-container {
+    height: 150px;
+  }
+
+  /* PROJECTS */
+  .projet-card .presentation img {
+    height: 150px;
+  }
+
+  /* HEADER */
+  nav span {
+    font-size: 1.8rem;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 20px 5%;
+  }
 }
