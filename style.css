@@ -9,6 +9,11 @@ html{
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@600;800&display=swap'); /* 🔧 polices */
 
+a{
+  text-decoration: none;
+  color: white;
+}
+
 
 h1, h2, h3, h4 {
   font-family: 'Poppins', sans-serif; /* 🔧 titres */
@@ -305,6 +310,7 @@ main{
 #about .btn-telecharger{
   width: 60%;
   /* border: 1px solid red; */
+  perspective: 900px;
 }
 #about .btn-telecharger button{
   padding: 10px 0;
@@ -313,7 +319,19 @@ main{
   position: relative;
    border-radius: 10px;
   background: linear-gradient(90deg,rgba(10, 28, 17, 1) 0%, rgba(87, 199, 133, 1) 50%, rgba(175, 237, 83, 1) 100%);
-
+   animation: btnAnim 3s infinite linear;
+}
+@keyframes btnAnim {
+  33%{
+    transform: translateZ(30px);
+  }
+  66%{
+    transform: translateZ(-40px);
+  }
+  100%{
+    transform: translateZ(0);
+  }
+  
 }
 #about .btn-telecharger button a{
   text-decoration: none;
@@ -464,6 +482,19 @@ main{
   margin-bottom: 15px;
     /* border: 1px solid red; */
 }
+.projet-card .presentation p .title2{
+ color: #C9E8CA;
+ font-weight: 800;
+ text-transform: capitalize;
+}
+
+.projet-card .presentation p .text{
+  display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+    /* overflow: hidden; */
+    text-align: justify;
+}
 
 .projet-card .techno {
   display: flex;
@@ -490,7 +521,7 @@ main{
   font-size: 0.9rem;
 }
 
-.projet-card .github button {
+.projet-card .github button , .site button{
   background: var(--light-green1);
   /* color: white; */
   border: none;
@@ -501,7 +532,7 @@ main{
   cursor: pointer;
 }
 
-.projet-card .github button:hover {
+.projet-card .github button:hover, .site button:hover {
   background: var(--green1);
 }
 
@@ -568,6 +599,14 @@ form textarea:focus {
   background-color: #384242;
 }
 
+.btn-telecharger{
+perspective: 400px;
+}
+.btnlinks{
+  display: flex;
+  gap: 10px;
+}
+
 form button {
   background-color: 
 var(--green1);
@@ -580,11 +619,13 @@ var(--green1);
   cursor: pointer;
   transition: background 0.3s ease, transform 0.3s ease;
   align-self:center;
+ 
 }
 
 form button:hover {
   background-color: #2F7C57; 
   transform: scale(1.03);
+  cursor: pointer;
 }
 
 /* === FOOTER === */
